@@ -2,7 +2,7 @@
 
 let x = 31.21;
 let y = 2;
-let  z = 10.5;
+let z = 10.5;
 
 //round the number
 z = Math.round(z);

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors</title>
+</head>
+<body>
+    
+    <div>
+       <p><span id="score">Score: </span></p><br>
+       <p id="nextPlayer"></p>
+       <div>
+        <button id="player1Btn">Play</button>
+        <div>
+            <div>
+                <p id="player1Output">Rock</p>
+                <span>Vs</span>
+                <p id="player2Output">Rock</p>
+            </div>
+        </div>
+        <button id="player2Btn">Play</button>
+       </div>
+    </div>
+
+    <script>
+        const player1OutputElem = document.getElementById("player1Output");
+        const player2OutputElem = document.getElementById("player2Output");
+        const player1Btn = document.getElementById("player1Btn");
+        const player2Btn = document.getElementById("player2Btn");
+
+        let player1Output;
+        let player2Output;
+        player1Btn.disabled = true;
+        function generator(){
+            let output;
+            let random =  Math.floor(Math.random() * 3 + 1);
+            random = Number(random);
+            if (random === 1) {
+                output = "Rock";
+            } else if (random === 2) {
+                output = "Paper";
+            }else if(random === 3){
+                output = "Scissors";
+            }else{
+                output = "Invalid";
+            }
+
+            return output;
+        }
+
+        player1Btn.onclick = function(){
+            if(!player1Btn.disabled){
+                player1Output = generator();
+                player1OutputElem.textContent = player1Output;
+                player2Btn.disabled = false;
+                player1Btn.disabled = true;
+            }
+           
+        }
+        player2Btn.onclick = function () {
+            if (!player2Btn.disabled) {
+                player2Output = generator();
+                player2OutputElem.textContent = player2Output;
+                player1Btn.disabled = false;
+                player2Btn.disabled = true;
+            }
+          
+        }
+        
+
+
+      
+    </script>
+</body>
+</html>
